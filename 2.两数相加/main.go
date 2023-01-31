@@ -76,8 +76,8 @@ func main() {
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	dummy := new(ListNode)
-	p := dummy
+	result := new(ListNode)
+	p := result
 	bit := 0
 	for l1 != nil || l2 != nil || bit != 0 {
 		if l1 != nil {
@@ -92,5 +92,5 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		p = p.Next
 		bit /= 10
 	}
-	return dummy.Next
+	return result.Next
 }

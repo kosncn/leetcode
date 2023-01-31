@@ -22,18 +22,37 @@ func main() {
 
 func lengthOfLongestSubstring(s string) int {
 	// 方法一: 暴力
-	count := 0
-	for i := 0; i < len(s); i++ {
-		char := make(map[byte]bool)
-		for j := i; j < len(s); j++ {
-			if _, ok := char[s[j]]; ok {
-				break
-			}
-			char[s[j]] = true
+	//result := 0
+	//for i := 0; i < len(s); i++ {
+	//	char := make(map[byte]bool)
+	//	for j := i; j < len(s); j++ {
+	//		if _, ok := char[s[j]]; ok {
+	//			break
+	//		}
+	//		char[s[j]] = true
+	//	}
+	//	if result < len(char) {
+	//		result = len(char)
+	//	}
+	//}
+	//return result
+
+	// 方法二: 滑动窗口
+	result := 0
+	left, right := 0, 0
+	window := make(map[byte]int)
+	for right < len(s) {
+		c1 := s[right]
+		window[c1]++
+		right++
+		for window[c1] > 1 {
+			c2 := s[left]
+			window[c2]--
+			left++
 		}
-		if count < len(char) {
-			count = len(char)
+		if right-left > result {
+			result = right - left
 		}
 	}
-	return count
+	return result
 }

@@ -13,7 +13,7 @@ func main() {
 }
 
 func maxArea(height []int) int {
-	// 方法一: 暴力 (超时)
+	// 解法一: 暴力 (超时)
 	//result := 0
 	//length := len(height)
 	//for i := 0; i < length; i++ {
@@ -24,7 +24,7 @@ func maxArea(height []int) int {
 	//}
 	//return result
 
-	// 方法二: 双指针
+	// 解法二: 双指针
 	result := 0
 	left, right := 0, len(height)-1
 	for left < right {

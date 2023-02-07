@@ -21,7 +21,7 @@ func main() {
 }
 
 func lengthOfLongestSubstring(s string) int {
-	// 方法一: 暴力
+	// 解法一: 暴力
 	//result := 0
 	//for i := 0; i < len(s); i++ {
 	//	char := make(map[byte]bool)
@@ -37,7 +37,7 @@ func lengthOfLongestSubstring(s string) int {
 	//}
 	//return result
 
-	// 方法二: 滑动窗口
+	// 解法二: 滑动窗口
 	result := 0
 	left, right := 0, 0
 	window := make(map[byte]int)

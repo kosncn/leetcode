@@ -76,7 +76,7 @@ func main() {
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	// 方法一: 双指针
+	// 解法一: 双指针
 	result := new(ListNode)
 	p := result
 	bit := 0

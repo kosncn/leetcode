@@ -22,7 +22,7 @@ func main() {
 }
 
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
-	// 方法一: 双指针
+	// 解法一: 双指针
 	p1, p2 := 0, 0
 	c1, c2 := len(nums1), len(nums2)
 	left, right := -1, -1

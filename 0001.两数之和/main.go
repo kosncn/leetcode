@@ -20,7 +20,7 @@ func main() {
 }
 
 func twoSwm(nums []int, target int) []int {
-	// 方法一: 暴力
+	// 解法一: 暴力
 	//for i := 0; i < len(nums); i++ {
 	//	for j := i + 1; j < len(nums); j++ {
 	//		if nums[i]+nums[j] == target {
@@ -30,7 +30,7 @@ func twoSwm(nums []int, target int) []int {
 	//}
 	//return []int{}
 
-	// 方法二: 哈希
+	// 解法二: 哈希
 	number := make(map[int]int)
 	for i, v := range nums {
 		if index, ok := number[target-v]; ok {

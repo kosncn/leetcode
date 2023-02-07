@@ -20,7 +20,7 @@ func main() {
 }
 
 func isMatch(s string, p string) bool {
-	// 方法一: 动态规划
+	// 解法一: 动态规划
 	m, n := len(s), len(p)
 	dp := make([][]bool, m+1)
 	for i := 0; i < m+1; i++ {

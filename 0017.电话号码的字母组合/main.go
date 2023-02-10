@@ -2,6 +2,19 @@ package main
 
 import "fmt"
 
+var result []string
+
+var phoneMap = map[byte][]string{
+	'2': {"a", "b", "c"},
+	'3': {"d", "e", "f"},
+	'4': {"g", "h", "i"},
+	'5': {"j", "k", "l"},
+	'6': {"m", "n", "o"},
+	'7': {"p", "q", "r", "s"},
+	'8': {"t", "u", "v"},
+	'9': {"w", "x", "y", "z"},
+}
+
 func main() {
 	// 示例 1
 	digits := "23"
@@ -14,19 +27,6 @@ func main() {
 	// 示例 3
 	digits = "2"
 	fmt.Println(letterCombinations(digits)) // Output: ["a", "b", "c"]
-}
-
-var result []string
-
-var phoneMap = map[byte][]string{
-	'2': {"a", "b", "c"},
-	'3': {"d", "e", "f"},
-	'4': {"g", "h", "i"},
-	'5': {"j", "k", "l"},
-	'6': {"m", "n", "o"},
-	'7': {"p", "q", "r", "s"},
-	'8': {"t", "u", "v"},
-	'9': {"w", "x", "y", "z"},
 }
 
 func letterCombinations(digits string) []string {

@@ -23,20 +23,12 @@ func main() {
 			Next: &ListNode{Val: 4},
 		},
 	}
-	result := addTwoNumbers(l1, l2)
-	for result != nil {
-		fmt.Println(result.Val) // Output: [7, 0, 8]
-		result = result.Next
-	}
+	fmt.Println(printListNode(addTwoNumbers(l1, l2))) // Output: [7, 0, 8]
 
 	// 示例 2
-	l1 = &ListNode{Val: 0} // l1: [0]
-	l2 = &ListNode{Val: 0} // l2: [0]
-	result = addTwoNumbers(l1, l2)
-	for result != nil {
-		fmt.Println(result.Val) // Output: [0]
-		result = result.Next
-	}
+	l1 = &ListNode{Val: 0}                            // l1: [0]
+	l2 = &ListNode{Val: 0}                            // l2: [0]
+	fmt.Println(printListNode(addTwoNumbers(l1, l2))) // Output: [0]
 
 	// 示例 3
 	l1 = &ListNode{ // l1: [9, 9, 9, 9, 9, 9, 9]
@@ -68,30 +60,37 @@ func main() {
 			},
 		},
 	}
-	result = addTwoNumbers(l1, l2)
-	for result != nil {
-		fmt.Println(result.Val) // Output: [8, 9, 9, 9, 0, 0, 0, 1]
-		result = result.Next
-	}
+
+	fmt.Println(printListNode(addTwoNumbers(l1, l2))) // Output: [8, 9, 9, 9, 0, 0, 0, 1]
+
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	// 解法一: 双指针
 	result := new(ListNode)
-	p := result
+	p, p1, p2 := result, l1, l2
 	bit := 0
-	for l1 != nil || l2 != nil || bit != 0 {
-		if l1 != nil {
-			bit += l1.Val
-			l1 = l1.Next
+	for p1 != nil || p2 != nil || bit != 0 {
+		if p1 != nil {
+			bit += p1.Val
+			p1 = p1.Next
 		}
-		if l2 != nil {
-			bit += l2.Val
-			l2 = l2.Next
+		if p2 != nil {
+			bit += p2.Val
+			p2 = p2.Next
 		}
 		p.Next = &ListNode{Val: bit % 10}
 		p = p.Next
 		bit /= 10
 	}
 	return result.Next
+}
+
+func printListNode(head *ListNode) []int {
+	var result []int
+	for head != nil {
+		result = append(result, head.Val)
+		head = head.Next
+	}
+	return result
 }

@@ -13,7 +13,7 @@ func main() {
 }
 
 func longestPalindrome(s string) string {
-	//// 解法一: 双指针
+	// 解法一: 双指针
 	//result := ""
 	//length := len(s)
 	//for i := 0; i < length; i++ {

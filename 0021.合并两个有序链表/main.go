@@ -37,7 +37,7 @@ func main() {
 
 	// 示例 4
 	l1 = &ListNode{Val: 5} // l1: [5]
-	l2 = &ListNode{ // l2: [1, 2, 4]
+	l2 = &ListNode{        // l2: [1, 2, 4]
 		Val: 1,
 		Next: &ListNode{
 			Val:  2,
@@ -48,7 +48,7 @@ func main() {
 }
 
 func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
-	//// 解法一：递归
+	// 解法一：递归
 	//p1, p2 := list1, list2
 	//if p1 == nil {
 	//	return p2

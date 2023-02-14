@@ -1,10 +1,34 @@
 package main
 
-import "fmt"
+import (
+	"container/heap"
+	"fmt"
+)
 
 type ListNode struct {
 	Val  int
 	Next *ListNode
+}
+
+type PriorityQueue []*ListNode
+
+func (pq PriorityQueue) Len() int { return len(pq) }
+
+func (pq PriorityQueue) Less(i int, j int) bool { return pq[i].Val < pq[j].Val }
+
+func (pq PriorityQueue) Swap(i int, j int) { pq[i], pq[j] = pq[j], pq[i] }
+
+func (pq *PriorityQueue) Push(x interface{}) {
+	*pq = append(*pq, x.(*ListNode))
+}
+
+func (pq *PriorityQueue) Pop() interface{} {
+	old := *pq
+	n := len(old)
+	node := old[n-1]
+	old[n-1] = nil
+	*pq = old[0 : n-1]
+	return node
 }
 
 func main() {
@@ -42,13 +66,33 @@ func main() {
 
 func mergeKLists(lists []*ListNode) *ListNode {
 	// 解法一：顺序合并
-	var result *ListNode
-	for i := 0; i < len(lists); i++ {
-		result = mergeTowLists(result, lists[i])
-	}
-	return result
+	//var result *ListNode
+	//for i := 0; i < len(lists); i++ {
+	//	result = mergeTowLists(result, lists[i])
+	//}
+	//return result
 
 	// 解法二：优先级队列
+	if len(lists) <= 0 {
+		return nil
+	}
+	pq := new(PriorityQueue)
+	dummy := new(ListNode)
+	p := dummy
+	for _, v := range lists {
+		if v != nil {
+			heap.Push(pq, v)
+		}
+	}
+	for pq.Len() > 0 {
+		node := heap.Pop(pq).(*ListNode)
+		p.Next = node
+		p = p.Next
+		if node.Next != nil {
+			heap.Push(pq, node.Next)
+		}
+	}
+	return dummy.Next
 }
 
 func mergeTowLists(list1, list2 *ListNode) *ListNode {

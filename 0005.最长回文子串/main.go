@@ -77,7 +77,7 @@ func helper(s string, left, right int) string {
 }
 
 func min(x, y int) int {
-	if x <= y {
+	if x < y {
 		return x
 	}
 	return y

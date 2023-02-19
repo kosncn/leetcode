@@ -19,13 +19,13 @@ func main() {
 func isValid(s string) bool {
 	// 解法一：栈
 	var stack []byte
-	var bracket = map[byte]byte{
+	var parenthesis = map[byte]byte{
 		'(': ')',
 		'[': ']',
 		'{': '}',
 	}
 	for i := 0; i < len(s); i++ {
-		if len(stack) > 0 && s[i] == bracket[stack[len(stack)-1]] {
+		if len(stack) > 0 && s[i] == parenthesis[stack[len(stack)-1]] {
 			stack = stack[:len(stack)-1]
 		} else {
 			stack = append(stack, s[i])

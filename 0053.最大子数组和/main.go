@@ -15,7 +15,7 @@ func main() {
 	nums = []int{5, 4, -1, 7, 8}
 	fmt.Println(maxSubArray(nums)) // Output: 23
 
-	// 示例 3
+	// 示例 4
 	nums = []int{-1}
 	fmt.Println(maxSubArray(nums)) // Output: -1
 }

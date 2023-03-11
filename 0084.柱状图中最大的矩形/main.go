@@ -57,9 +57,8 @@ func largestRectangleArea(heights []int) int {
 	//	for len(stack) > 0 && heights[stack[len(stack)-1]] >= heights[i] {
 	//		stack = stack[:len(stack)-1]
 	//	}
-	//	if len(stack) == 0 {
-	//		left[i] = -1
-	//	} else {
+	//	left[i] = -1
+	//	if len(stack) > 0 {
 	//		left[i] = stack[len(stack)-1]
 	//	}
 	//	stack = append(stack, i)
@@ -70,9 +69,8 @@ func largestRectangleArea(heights []int) int {
 	//	for len(stack) > 0 && heights[stack[len(stack)-1]] >= heights[i] {
 	//		stack = stack[:len(stack)-1]
 	//	}
-	//	if len(stack) == 0 {
-	//		right[i] = n
-	//	} else {
+	//	right[i] = n
+	//	if len(stack) > 0 {
 	//		right[i] = stack[len(stack)-1]
 	//	}
 	//	stack = append(stack, i)
